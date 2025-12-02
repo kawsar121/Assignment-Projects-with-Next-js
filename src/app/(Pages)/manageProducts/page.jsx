@@ -12,30 +12,29 @@ export default function ManageProducts() {
 
   const [editId, setEditId] = useState(null);
 
-  // Load data from LocalStorage
+
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("products")) || [];
     setProducts(saved);
   }, []);
 
-  // Save to LocalStorage
+
   const saveToLocal = (data) => {
     localStorage.setItem("products", JSON.stringify(data));
   };
 
-  // Handle input
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Add or Edit Product
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!form.title || !form.price || !form.category) return;
 
+    // Data Add
     if (editId === null) {
-      // ADD
       const newProduct = {
         id: Date.now(),
         ...form,
@@ -47,7 +46,7 @@ export default function ManageProducts() {
       saveToLocal(updated);
 
     } else {
-      // EDIT
+      // data edit
       const updated = products.map((item) =>
         item.id === editId ? { ...item, ...form } : item
       );
@@ -59,7 +58,6 @@ export default function ManageProducts() {
     setForm({ title: "", price: "", category: "" });
   };
 
-  // Load data into form for editing
   const handleEdit = (product) => {
     setEditId(product.id);
     setForm({
@@ -69,7 +67,7 @@ export default function ManageProducts() {
     });
   };
 
-  // Delete Product
+  // Delete data
   const handleDelete = (id) => {
     const filtered = products.filter((item) => item.id !== id);
     setProducts(filtered);
@@ -80,7 +78,7 @@ export default function ManageProducts() {
     <div className="max-w-3xl mx-auto p-5">
       <h1 className="text-2xl font-bold mb-4">Manage Products</h1>
 
-      {/* FORM */}
+      {/* input form */}
       <form onSubmit={handleSubmit} className="space-y-3 mb-8">
         <input
           type="text"
@@ -117,7 +115,7 @@ export default function ManageProducts() {
         </button>
       </form>
 
-      {/* PRODUCT LIST */}
+      {/* Data list */}
       <div className="space-y-4">
         {products.length === 0 && (
           <p className="text-gray-500">No products added yet.</p>
