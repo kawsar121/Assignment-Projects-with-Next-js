@@ -18,56 +18,83 @@ const DetailsPage = () => {
       });
   }, [id]);
   console.log(detailsData);
-   if (!detailsData) return <p className="text-center mt-10">Loading...</p>;
+  if (!detailsData) return <p className="text-center mt-10">Loading...</p>;
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <div>
-        <img
-          src={detailsData.thumbnail}
-          alt={detailsData.title}
-          className="w-80 object-cover mx-auto rounded-lg mb-6"
-        />
-      </div>
-        <div>
-            {/* Price, Category */}
-      <h1 className="text-2xl font-bold mb-4">{detailsData.title}</h1>
-      <div className=" mb-4">
-        <p className="text-xl font-semibold">${detailsData.price}</p>
-        <p className="uppercase text-gray-600">{detailsData.category}</p>
-      </div>
-
-      {/* Tags */}
-      <div className="mb-4">
-        <h2 className="text-lg font-bold">Tags:</h2>
-        <div className="flex flex-wrap gap-2 mt-2">
-          {detailsData.tags?.map((tag, index) => (
-            <span
-              key={index}
-              className="bg-gray-200 px-3 py-1 rounded-full text-sm"
-            >
-              {tag}
-            </span>
-          ))}
+    <div className="max-w-md mx-auto p-3 border border-gray-300 dark:border-gray-700 rounded-xl shadow-md bg-white dark:bg-gray-900 transition-all">
+      {/* Product Image */}
+      <div className="flex justify-center mb-3">
+        <div className="overflow-hidden rounded-xl shadow-sm border border-gray-300 dark:border-gray-700 w-40">
+          <img
+            src={detailsData.thumbnail}
+            alt={detailsData.title}
+            className="w-full rounded-xl object-cover"
+          />
         </div>
       </div>
 
-      {/* Description */}
-      <p className="text-gray-700 mb-6">{detailsData.description}</p>
+      {/* Product Info */}
+      <div className="flex flex-col justify-start gap-2">
+        {/* Title */}
+        <h1 className="text-lg font-bold text-gray-900 dark:text-gray-100 text-center">
+          {detailsData.title}
+        </h1>
 
-      {/* Reviews */}
-      <h2 className="text-xl font-bold mt-6 mb-3">Customer Reviews</h2>
-      {detailsData.reviews?.map((review, index) => (
-        <div
-          key={index}
-          className="border p-4 rounded-lg mb-3 bg-gray-50 shadow-sm"
-        >
-          <p className="font-semibold">⭐ {review.rating} / 5</p>
-          <p className="italic text-gray-700">{review.comment}</p>
-          <p className="text-sm text-gray-500 mt-2">— {review.reviewerName}</p>
+        {/* Price & Category */}
+        <div className="flex justify-center items-center gap-3">
+          <p className="text-base font-semibold text-blue-600 dark:text-blue-400">
+            ${detailsData.price}
+          </p>
+          <p className="uppercase text-gray-600 dark:text-gray-400 font-medium text-xs">
+            {detailsData.category}
+          </p>
         </div>
-      ))}
-        </div>
-      
+
+        {/* Tags */}
+        {detailsData.tags?.length > 0 && (
+          <div className="flex flex-wrap justify-center gap-1">
+            {detailsData.tags.map((tag, index) => (
+              <span
+                key={index}
+                className="bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 text-white px-2 py-0.5 rounded-full text-xs font-medium"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* Description */}
+        <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed text-center">
+          {detailsData.description}
+        </p>
+
+        {/* Reviews */}
+        {detailsData.reviews?.length > 0 && (
+          <div>
+            <h2 className="text-sm font-bold mt-2 mb-1 text-gray-900 dark:text-gray-100 text-center">
+              Customer Reviews
+            </h2>
+            <div className="flex flex-col gap-1">
+              {detailsData.reviews.map((review, index) => (
+                <div
+                  key={index}
+                  className="p-1.5 rounded-lg bg-white/20 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm"
+                >
+                  <p className="font-semibold text-yellow-400 text-sm">
+                    ⭐ {review.rating} / 5
+                  </p>
+                  <p className="italic text-gray-700 dark:text-gray-200 text-xs mt-0.5">
+                    {review.comment}
+                  </p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                    — {review.reviewerName}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

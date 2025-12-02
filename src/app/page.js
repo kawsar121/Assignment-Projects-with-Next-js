@@ -6,7 +6,7 @@ export default function Home() {
   <h1 className="text-3xl md:text-5xl font-bold text-center">
     Welcome to Product Explorer
   </h1>
-  <p className="text-gray-500 mt-4 text-center">Browse products easily</p>
+  <p className="text-gray-500 mt-5 text-center">Browse products easily</p>
 </div>
 
   );
