@@ -2,9 +2,12 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="text-center mt-44">
-      <h1 className="text-5xl font-bold">Welcome to Product Explorer</h1>
-      <p className="text-gray-500 mt-4">Browse products easily</p>
-    </div>
+    <div className="flex flex-col justify-center items-center h-screen">
+  <h1 className="text-3xl md:text-5xl font-bold text-center">
+    Welcome to Product Explorer
+  </h1>
+  <p className="text-gray-500 mt-4 text-center">Browse products easily</p>
+</div>
+
   );
 }
