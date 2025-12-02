@@ -12,21 +12,21 @@ const Products = () => {
   useEffect(() => {
     fetch("https://dummyjson.com/products")
       .then((res) => res.json())
-      .catch(() => setError("Failed to load products"))
       .then((data) => {
         console.log(data.products);
         setProducts(data.products);
-        setLoading(false);
-      });
+      })
+      .catch(() => setError("Failed to load products"))
+      .finally(() => setLoading(false))
   }, []);
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p><span className="loading loading-ring loading-xl justify-items-center flex mx-auto mt-44"></span></p>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
   const filtered = products.filter((p) =>
     p.title.toLowerCase().includes(search.toLowerCase())
   );
   return (
     <div>
-      <h1>This is Products Page</h1>
+      {/* <h1 className="text-center my-3 text-xl font-semibold">All Products </h1> */}
       <input
         className="border p-2 rounded w-full mb-4"
         placeholder="Search product..."

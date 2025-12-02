@@ -44,16 +44,16 @@ const Navbar = () => {
         </div>
         <a className="btn ">DeshiBaba</a>
       </div>
-      <div className="navbar-center hidden lg:flex ">
-        <ul className="menu menu-horizontal px-1">
-          <li>
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1 space-x-10">
+          <li className="text-base font-semibold hover:text-red-400">
             <Link href="/">Home</Link>
           </li>
-          <li>
+          <li className="text-base font-semibold hover:text-red-400">
             <Link href="/products">Products</Link>
           </li>
-          <li>
-            <Link href="/manageProducts">Manage Products</Link>{" "}
+          <li className="text-base font-semibold hover:text-red-400">
+            <Link href="/manageProducts">Manage Products</Link>
           </li>
         </ul>
       </div>
@@ -77,12 +77,10 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-white dark:bg-gray-800 text-black dark:text-white rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a className="justify-between">
-                  Profile
-                </a>
+                <a className="justify-between">Profile</a>
               </li>
               <li>
                 <a>Settings</a>
