@@ -20,7 +20,7 @@ const DetailsPage = () => {
   console.log(detailsData);
   if (!detailsData) return <p className="text-center mt-10">Loading...</p>;
   return (
-    <div className="max-w-md mx-auto p-3 border border-gray-300 dark:border-gray-700 rounded-xl shadow-md bg-white dark:bg-gray-900 transition-all">
+    <div className="max-w-md mx-auto p-3 border w-72 md:w-full border-gray-300 dark:border-gray-700 rounded-xl shadow-md bg-white dark:bg-gray-900 transition-all">
       {/* Product Image */}
       <div className="flex justify-center mb-3">
         <div className="overflow-hidden rounded-xl shadow-sm border border-gray-300 dark:border-gray-700 w-40">
@@ -74,11 +74,11 @@ const DetailsPage = () => {
             <h2 className="text-sm font-bold mt-2 mb-1 text-gray-900 dark:text-gray-100 text-center">
               Customer Reviews
             </h2>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-2">
               {detailsData.reviews.map((review, index) => (
                 <div
                   key={index}
-                  className="p-1.5 rounded-lg bg-white/20 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm"
+                  className="p-0.5 md:p-1.5 rounded-lg bg-white/20 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-sm"
                 >
                   <p className="font-semibold text-yellow-400 text-sm">
                     ⭐ {review.rating} / 5
@@ -91,6 +91,7 @@ const DetailsPage = () => {
                   </p>
                 </div>
               ))}
+              <button className="mt-5 bg-blue-600 dark:bg-blue-500 text-white px-5 py-2 w-2/4 mx-auto md:w-full  text-center rounded-xl hover:bg-blue-700 dark:hover:bg-blue-600 transition font-medium">Buy Now</button>
             </div>
           </div>
         )}

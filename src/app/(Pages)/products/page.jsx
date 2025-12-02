@@ -33,7 +33,7 @@ const Products = () => {
     <div className="mb-14">
       {/* <h1 className="text-center my-3 text-xl font-semibold">All Products </h1> */}
       <input
-        className="border p-2 rounded w-full mb-4"
+        className="border sticky top-[70px] md:top-[73px] z-50 p-2 rounded w-11/12 md:w-full mx-auto flex mb-4"
         placeholder="Search product..."
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -41,7 +41,7 @@ const Products = () => {
         {filtered.map((item) => (
           <div
             key={item.id}
-            className="border border-gray-300 dark:border-gray-700 p-6 md:p-8 rounded-2xl shadow-md dark:shadow-none bg-white dark:bg-gray-900 hover:shadow-xl transition-shadow duration-300 flex flex-col"
+            className="border border-gray-300 dark:border-gray-700 w-72 mx-auto p-6 md:p-8 rounded-2xl shadow-md dark:shadow-none bg-white dark:bg-gray-900 hover:shadow-xl transition-shadow duration-300 flex flex-col"
           >
             {/* Image */}
             <div className="overflow-hidden rounded-xl">
@@ -70,7 +70,7 @@ const Products = () => {
             {/* Details Button */}
             <Link
               href={`/products/${item.id}`}
-              className="mt-5 bg-blue-600 dark:bg-blue-500 text-white px-5 py-2 text-center rounded-xl hover:bg-blue-700 dark:hover:bg-blue-600 transition font-medium"
+              className="mt-5 bg-blue-600 dark:bg-blue-500 text-white px-5 py-2 w-2/4 mx-auto md:w-full  text-center rounded-xl hover:bg-blue-700 dark:hover:bg-blue-600 transition font-medium"
             >
               View Details
             </Link>
