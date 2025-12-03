@@ -1,1 +1,1 @@
-Live Link : https://github.com/kawsar121/Assignment-Projects-with-Next-js
+Live Link : https://assignment-projects-six.vercel.app/
